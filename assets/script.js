@@ -1,8 +1,13 @@
 var $ = document.querySelector.bind(document);
 
-var container = $(".quote");
-var quotes = JSON.parse($("#quotes_json").innerHTML);
-var template = $("#quotes_tpl").innerHTML;
+var container = $(".js-quote");
+var quotes = JSON.parse($(".js-quotes_json").innerHTML);
+var template = $(".js-quotes_tpl").innerHTML;
+
+// https://css-tricks.com/snippets/javascript/htmlentities-for-javascript/
+function htmlEntities(str) {
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
 
 function shuffleList(list) {
   return list.sort(function() {
@@ -21,7 +26,7 @@ function processTemplate(temlate, data) {
   data = data || {};
   return template.replace(
     /\$\{(.+?)\}/g,
-    (_, propName) => data[propName] || ""
+    (_, propName) => htmlEntities(data[propName] || "")
   );
 }
 

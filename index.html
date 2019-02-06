@@ -3,7 +3,7 @@
   <head>
     <title>Настроение</title>
     <link rel="stylesheet" href="assets/style.css" />
-    <script id="quotes_json" type="application/json">
+    <script class="js-quotes_json" type="application/json">
       [
       {
         "phrase": "Кукурузные хлопья - теперь без асбеста!",
@@ -121,14 +121,14 @@
       }
     ]
     </script>
-    <script id="quotes_tpl" type="application/template">
+    <script class="js-quotes_tpl" type="application/template">
       <h3 class="phrase">${phrase}</h3>
       <h4 class="signature">${signature}</h4>
     </script>
   </head>
   <body>
     <div class="container">
-      <div class="quote"></div>
+      <div class="quote js-quote"></div>
     </div>
     <script src="assets/script.js"></script>
   </body>
